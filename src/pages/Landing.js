@@ -109,11 +109,17 @@ const PAINS = [
 
 const FEATURES = [
   { icon:'💬', title:'AI Care Assistant', desc:'Ask anything about Ontario\'s health system — PSW, OHIP, LTC waitlists — plain-language answers, 24/7.' },
-  { icon:'📄', title:'Insurance Letter Drafts', desc:'Describe your situation and get a complete, professional appeal letter — ready to send in minutes.' },
-  { icon:'💊', title:'Medication Guide', desc:'Enter your loved one\'s medications and get explanations, interaction warnings, and caregiver tips.' },
-  { icon:'📋', title:'Benefits Navigator', desc:'Step-by-step guidance for Ontario Caregiver Tax Credit, PSW, ODSP, RDSP, and more.' },
-  { icon:'🗓️', title:'Appointment Tracker', desc:'Keep all medical appointments, medications, and care tasks organized. Never miss a critical date.' },
-  { icon:'📍', title:'Local Resource Finder', desc:'Curated directory of home care, respite, and support services across Ontario — from Toronto to Thunder Bay.' },
+  { icon:'📄', title:'Insurance Letter Drafts', desc:'Complete, professional appeal letters drafted in minutes — ready to print and send.' },
+  { icon:'💊', title:'Medication Guide', desc:'Medication explanations, interaction warnings, and caregiver tips in plain language.' },
+  { icon:'💰', title:'Tax Credits Finder', desc:'Find every caregiver tax credit you qualify for — Canada Caregiver Credit, DTC, Medical Expenses and more.' },
+  { icon:'💼', title:'EI & Job Rights', desc:'EI Compassionate Care Benefits, Family Medical Leave, and job protection rights explained.' },
+  { icon:'🏨', title:'Hospital Discharge Guide', desc:'Bring your loved one home safely — checklists, warning signs, and home care setup.' },
+  { icon:'🧩', title:'Dementia Care Guide', desc:'Stage-by-stage guidance for caring for someone with Alzheimer\'s or dementia.' },
+  { icon:'🔒', title:'Home Safety Assessment', desc:'Room-by-room fall prevention assessment with personalized AI recommendations.' },
+  { icon:'📓', title:'Care Journal', desc:'Shareable health log — track symptoms, vitals, and visits to share with your healthcare team.' },
+  { icon:'🚨', title:'Emergency Planning', desc:'Build a backup plan so your loved one is never without care if something happens to you.' },
+  { icon:'👥', title:'Caregiver Community', desc:'Connect with other Ontario caregivers — share experiences, ask questions, find support.' },
+  { icon:'📍', title:'Local Resource Finder', desc:'120+ Ontario services — from Toronto to Thunder Bay, Sudbury to Windsor.' },
 ];
 
 const STEPS = [
@@ -182,7 +188,7 @@ export default function Landing({ onGetStarted }) {
             <a href="#features" style={S.btnGhost}>See How It Works ↓</a>
           </div>
           <div style={S.statsStrip}>
-            {[{n:'4M+',l:'Ontario caregivers'},{n:'40 hrs',l:'avg. care per week'},{n:'73%',l:'feel overwhelmed'},{n:'50K+',l:'on LTC waitlist'}].map((s,i)=>(
+            {[{n:'4M+',l:'Ontario caregivers'},{n:'22',l:'specialized tools'},{n:'73%',l:'feel overwhelmed'},{n:'50K+',l:'on LTC waitlist'}].map((s,i)=>(
               <div key={i}>
                 <div style={S.statNum}>{s.n}</div>
                 <div style={S.statLabel}>{s.l}</div>
@@ -216,7 +222,7 @@ export default function Landing({ onGetStarted }) {
         <div style={S.sectionInner}>
           <div style={S.sectionTag}>What CareGuide Does</div>
           <h2 style={S.sectionTitle}>Your AI-powered<br/>caregiving team</h2>
-          <p style={S.sectionDesc}>Six specialized tools in one app — each built around the real challenges Ontario caregivers face every day.</p>
+          <p style={S.sectionDesc}>22 specialized tools in one app — each built around the real challenges Ontario caregivers face every day.</p>
           <div style={S.featuresGrid}>
             {FEATURES.map((f,i)=>(
               <div key={i} style={S.featureCard}>

@@ -4,6 +4,7 @@
   "rewrites": [
     { "source": "/api/chat",     "destination": "/api/chat.js"     },
     { "source": "/api/waitlist", "destination": "/api/waitlist.js" },
+    { "source": "/api/remind",   "destination": "/api/remind.js"   },
     { "source": "/(.*)",         "destination": "/index.html"      }
   ]
 }
