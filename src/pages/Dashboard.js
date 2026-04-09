@@ -159,7 +159,7 @@ export default function Dashboard({ user, onLogout }) {
 
             {currentUser.plan === 'free' && (
               <button onClick={()=>{ setShowUpgrade(true); setSidebarOpen(false); }} style={{ width:'100%', background:'#3d7a52', border:'none', borderRadius:10, padding:12, color:'#fff', fontSize:14, cursor:'pointer', marginBottom:12, fontFamily:"'DM Sans',sans-serif" }}>
-                ⭐ Upgrade to Family — $19/mo
+                ⭐ Upgrade to Family — $4.99/mo
               </button>
             )}
             <button onClick={onLogout} style={{ width:'100%', background:'none', border:'1px solid rgba(255,255,255,0.1)', borderRadius:10, padding:10, color:'#5a7a60', fontSize:13, cursor:'pointer', fontFamily:"'DM Sans',sans-serif" }}>
