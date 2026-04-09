@@ -67,7 +67,7 @@ export default function AuthScreen({ onAuth, onBack }) {
           <h1 style={{ fontFamily:"'Playfair Display',serif", fontSize:28, color:'#fff', fontWeight:400, marginBottom:4 }}>
             CareGuide <span style={{color:'#7cb88a'}}>AI</span>
           </h1>
-          <p style={{ fontSize:12, color:'#5a7a60', letterSpacing:'0.08em', textTransform:'uppercase' }}>Ontario Caregiver Assistant</p>
+          <p style={{ fontSize:12, color:'#5a7a60', letterSpacing:'0.08em', textTransform:'uppercase' }}>Serving All of Ontario</p>
         </div>
 
         {/* Card */}

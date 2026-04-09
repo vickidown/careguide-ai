@@ -113,7 +113,7 @@ const FEATURES = [
   { icon:'💊', title:'Medication Guide', desc:'Enter your loved one\'s medications and get explanations, interaction warnings, and caregiver tips.' },
   { icon:'📋', title:'Benefits Navigator', desc:'Step-by-step guidance for Ontario Caregiver Tax Credit, PSW, ODSP, RDSP, and more.' },
   { icon:'🗓️', title:'Appointment Tracker', desc:'Keep all medical appointments, medications, and care tasks organized. Never miss a critical date.' },
-  { icon:'📍', title:'Elgin County Resources', desc:'Curated directory of St. Thomas and Elgin County home care, respite, and support services.' },
+  { icon:'📍', title:'Local Resource Finder', desc:'Curated directory of home care, respite, and support services across Ontario — from Toronto to Thunder Bay.' },
 ];
 
 const STEPS = [
@@ -131,7 +131,7 @@ const TESTIMONIALS = [
 
 const PLANS = [
   { name:'Personal', price:'$0', period:'forever free', desc:'Get started and see how CareGuide can help.', features:['10 AI questions per month','1 insurance letter draft','Medication checker (up to 3 meds)','Ontario resource directory'], featured:false },
-  { name:'Family', price:'$19', period:'/month', desc:'Everything you need to confidently manage care for a loved one.', features:['Unlimited AI conversations','Unlimited letter drafts','Medication tracker (unlimited)','Benefits navigator','Care task tracker','Local Elgin County resources','Priority email support'], featured:true },
+  { name:'Family', price:'$4.99', period:'/month', desc:'Everything you need to confidently manage care for a loved one.', features:['Unlimited AI conversations','Unlimited letter drafts','Medication tracker (unlimited)','Benefits navigator','Care task tracker','Local Elgin County resources','Priority email support'], featured:true },
   { name:'Organization', price:'$79', period:'/month · up to 10 staff', desc:'For home care agencies and social workers in Elgin County.', features:['Everything in Family','10 team accounts','Client management dashboard','Custom intake forms','Dedicated onboarding call','Phone support'], featured:false },
 ];
 
@@ -166,15 +166,15 @@ export default function Landing({ onGetStarted }) {
           <span style={{fontSize:20}}>🌿</span>
           <span style={S.logoText}>CareGuide <span style={S.logoAI}>AI</span></span>
         </div>
-        <span style={S.navBadge}>Ontario · Elgin County</span>
-        <button style={S.navCta} onClick={onGetStarted}>Start Free Trial</button>
+        <span style={S.navBadge}>Serving All of Ontario</span>
+        <div style={{display:"flex",gap:10}}><button style={{background:"transparent",color:"#c8dcc9",border:"1px solid rgba(200,220,201,0.3)",borderRadius:8,padding:"8px 16px",fontSize:14,cursor:"pointer"}} onClick={onGetStarted}>Log In</button><button style={S.navCta} onClick={onGetStarted}>Start Free Trial</button></div>
       </nav>
 
       {/* HERO */}
       <section style={S.hero}>
         <div style={{ position:'absolute', top:0, left:0, right:0, bottom:0, background:'radial-gradient(ellipse at 70% 50%,rgba(61,122,82,0.14) 0%,transparent 60%)', pointerEvents:'none' }}/>
         <div style={S.heroInner}>
-          <div style={S.heroTag}>🍁 Built for Ontario Caregivers</div>
+          <div style={S.heroTag}>🍁 Built for Every Ontario Caregiver</div>
           <h1 style={S.heroH1}>You're carrying<br/><em style={S.heroEm}>too much</em> alone.</h1>
           <p style={S.heroSub}>CareGuide AI is your 24/7 personal assistant for navigating Ontario's health system, fighting insurance battles, and managing the endless paperwork of caring for a loved one.</p>
           <div style={S.heroActions}>
@@ -331,7 +331,7 @@ export default function Landing({ onGetStarted }) {
           <div>
             <div style={S.footerBrand}>🌿 CareGuide AI</div>
             <div>Supporting Ontario caregivers, one family at a time.</div>
-            <div style={{marginTop:6}}>St. Thomas · Elgin County · Ontario</div>
+            <div style={{marginTop:6}}>Serving all of Ontario 🍁</div>
           </div>
           <div style={{display:'flex', gap:40, flexWrap:'wrap'}}>
             <div>

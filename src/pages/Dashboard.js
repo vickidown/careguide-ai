@@ -5,7 +5,7 @@ import LocalResources from '../components/LocalResources';
 import { UpgradeModal } from '../components/LocalResources';
 
 const PLANS = {
-  free:   { name:'Free',         questions:10,       letters:1 },
+  free:   { name:'Free',         questions:10, letters:1 },
   family: { name:'Family',       questions:Infinity, letters:Infinity },
   org:    { name:'Organization', questions:Infinity, letters:Infinity },
 };
@@ -16,12 +16,12 @@ const TOOLS = [
   { id:'meds',   icon:'💊', label:'Medication Guide', desc:'Check interactions & understand meds'      },
   { id:'forms',  icon:'📋', label:'Benefits Helper',  desc:'Navigate OHIP, PSW, ODSP & more'           },
   { id:'tasks',  icon:'🗓️', label:'Care Tracker',     desc:'Track appointments & care tasks'            },
-  { id:'local',  icon:'📍', label:'Local Resources',  desc:'St. Thomas & Elgin County services'         },
+  { id:'local',  icon:'📍', label:'Local Resources',  desc:'Find care services anywhere in Ontario'         },
 ];
 
 const PROMPTS = {
   chat: {
-    system: `You are CareGuide AI, a compassionate assistant for Ontario family caregivers, especially in St. Thomas and Elgin County. Help navigate OHIP, Home and Community Care, PSW services, long-term care waitlists, caregiver tax credits, and more. Be warm, plain-spoken, and practical. Keep responses under 250 words unless a detailed answer is truly needed.`,
+    system: `You are CareGuide AI, a compassionate assistant for Ontario family caregivers, across all of Ontario. Help navigate OHIP, Home and Community Care, PSW services, long-term care waitlists, caregiver tax credits, and more. Be warm, plain-spoken, and practical. Keep responses under 250 words unless a detailed answer is truly needed.`,
     placeholder: 'Ask about home care, benefits, rights…',
     starters: [
       'My mom was just discharged from hospital. What home care can she get in Ontario?',
@@ -109,7 +109,7 @@ export default function Dashboard({ user, onLogout }) {
           <span style={{fontSize:20}}>🌿</span>
           <div>
             <div style={{ fontFamily:"'Playfair Display',serif", fontSize:17, color:'#c8dcc9' }}>CareGuide <span style={{color:'#7cb88a'}}>AI</span></div>
-            <div style={{ fontSize:10, color:'#4a6a4f', letterSpacing:'0.08em', textTransform:'uppercase' }}>Ontario Caregiver Assistant</div>
+            <div style={{ fontSize:10, color:'#4a6a4f', letterSpacing:'0.08em', textTransform:'uppercase' }}>Serving All of Ontario</div>
           </div>
         </div>
         <button onClick={()=>setSidebarOpen(!sidebarOpen)} style={{ background:'rgba(255,255,255,0.05)', border:'1px solid rgba(124,184,138,0.2)', borderRadius:8, padding:'6px 14px', color:'#c8dcc9', fontSize:13, cursor:'pointer' }}>

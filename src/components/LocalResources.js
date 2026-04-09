@@ -1,28 +1,44 @@
 import React, { useState } from 'react';
 
 const RESOURCES = [
-  { name:'St. Thomas-Elgin General Hospital',    phone:'519-631-2020', type:'Hospital',         address:'189 Elm St, St. Thomas' },
-  { name:'VON Canada – Elgin County',            phone:'519-633-2273', type:'Home Care',         address:'St. Thomas, ON' },
-  { name:'Alzheimer Society of Elgin-St. Thomas',phone:'519-631-1220', type:'Dementia Support',  address:'11 Mondamin St' },
-  { name:'Ontario Caregiver Organization',       phone:'1-833-416-2273',type:'Caregiver Support',address:'Province-wide helpline' },
-  { name:'CMHA Thames Valley Elgin',             phone:'519-433-2023', type:'Mental Health',     address:'648 Huron St' },
-  { name:'Elgin County Home Care',               phone:'519-633-7402', type:'PSW Services',      address:'450 Sunset Dr, St. Thomas' },
-  { name:'St. Thomas Senior Centre',             phone:'519-631-1880', type:'Seniors Programs',  address:'225 Balaclava St' },
-  { name:'Legal Aid Ontario',                    phone:'1-800-668-8258',type:'Legal Help',        address:'Province-wide' },
-  { name:'Distress Centre Elgin',                phone:'519-633-1492', type:'Crisis Support',    address:'St. Thomas, ON' },
-  { name:'Elgin County Library',                 phone:'519-631-6050', type:'Community Resource',address:'450 Sunset Dr, St. Thomas' },
+  // Province-wide
+  { name:'Ontario Caregiver Organization Helpline', phone:'1-833-416-2273', type:'Caregiver Support', address:'Province-wide — free helpline' },
+  { name:'Health811 (Health Connect Ontario)',       phone:'811',            type:'Health Advice',    address:'Province-wide — 24/7 nurse line' },
+  { name:'Alzheimer Society of Ontario',            phone:'1-800-879-4226', type:'Dementia Support', address:'Province-wide' },
+  { name:'Ontario Disability Support Program',      phone:'1-888-789-4199', type:'Financial Aid',    address:'Province-wide' },
+  { name:'Legal Aid Ontario',                       phone:'1-800-668-8258', type:'Legal Help',       address:'Province-wide' },
+  { name:'Telehealth Ontario',                      phone:'1-866-797-0000', type:'Medical Advice',   address:'Province-wide — 24/7' },
+  { name:'Distress & Crisis Ontario',               phone:'1-800-452-0688', type:'Crisis Support',   address:'Province-wide' },
+  { name:'Home and Community Care Support',         phone:'310-2222',       type:'Home Care / PSW',  address:'Province-wide — no area code needed' },
+  // Toronto
+  { name:'Toronto Seniors Helpline',                phone:'416-217-2077',   type:'Seniors Support',  address:'Toronto' },
+  { name:'CAMH Mental Health',                      phone:'416-535-8501',   type:'Mental Health',    address:'Toronto' },
+  // Ottawa
+  { name:'Carefor Health & Community Services',     phone:'613-744-9207',   type:'Home Care',        address:'Ottawa' },
+  { name:'Ottawa Distress Centre',                  phone:'613-238-3311',   type:'Crisis Support',   address:'Ottawa' },
+  // Hamilton
+  { name:'Hamilton Health Sciences',                phone:'905-521-2100',   type:'Hospital',         address:'Hamilton' },
+  { name:"St. Joseph's Home Care",                  phone:'905-522-1155',   type:'Home Care',        address:'Hamilton' },
+  // London
+  { name:'VON Canada — London',                     phone:'519-642-0601',   type:'Home Care',        address:'London' },
+  { name:'Canadian Mental Health — London',         phone:'519-434-9191',   type:'Mental Health',    address:'London' },
+  // St. Thomas / Elgin County
+  { name:'St. Thomas-Elgin General Hospital',       phone:'519-631-2020',   type:'Hospital',         address:'St. Thomas' },
+  { name:'Alzheimer Society Elgin-St. Thomas',      phone:'519-631-1220',   type:'Dementia Support', address:'St. Thomas' },
+  { name:'VON Canada — Elgin County',               phone:'519-633-2273',   type:'Home Care',        address:'St. Thomas' },
 ];
 
 export function LocalResources() {
   const [search, setSearch] = useState('');
   const filtered = RESOURCES.filter(r =>
     r.name.toLowerCase().includes(search.toLowerCase()) ||
-    r.type.toLowerCase().includes(search.toLowerCase())
+    r.type.toLowerCase().includes(search.toLowerCase()) ||
+    r.address.toLowerCase().includes(search.toLowerCase())
   );
   return (
     <div>
       <input value={search} onChange={e=>setSearch(e.target.value)}
-        placeholder="Search by name or type…"
+        placeholder="Search by city, type, or name…"
         style={{ width:'100%', background:'rgba(255,255,255,0.05)', border:'1px solid rgba(124,184,138,0.22)', borderRadius:10, padding:'9px 14px', color:'#dde8de', fontSize:14, outline:'none', marginBottom:14, fontFamily:"'DM Sans',sans-serif" }}/>
       {filtered.map((r,i) => (
         <div key={i} style={{ padding:'13px 15px', background:'rgba(255,255,255,0.03)', border:'1px solid rgba(124,184,138,0.09)', borderRadius:12, marginBottom:8 }}>
@@ -58,7 +74,7 @@ export function UpgradeModal({ reason, onClose, onUpgrade }) {
           ))}
         </div>
         <div style={{ display:'flex', alignItems:'baseline', justifyContent:'center', gap:5, marginBottom:20 }}>
-          <span style={{ fontFamily:"'Playfair Display',serif", fontSize:40, color:'#fff', fontWeight:700 }}>$19</span>
+          <span style={{ fontFamily:"'Playfair Display',serif", fontSize:40, color:'#fff', fontWeight:700 }}>$4.99</span>
           <span style={{ color:'#5a7a60', fontSize:14 }}>/month · cancel anytime</span>
         </div>
         <button onClick={onUpgrade} style={{ width:'100%', background:'#7cb88a', border:'none', borderRadius:10, padding:13, color:'#0d1f14', fontSize:15, fontWeight:600, cursor:'pointer', marginBottom:10, fontFamily:"'DM Sans',sans-serif" }}>

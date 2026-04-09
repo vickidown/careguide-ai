@@ -1,4 +1,5 @@
 export default async function handler(req, res) {
+  // Allow all origins during development/testing
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
@@ -8,11 +9,15 @@ export default async function handler(req, res) {
 
   const apiKey = process.env.ANTHROPIC_API_KEY;
   if (!apiKey) {
-    return res.status(500).json({ error: 'No API key found' });
+    return res.status(500).json({ error: 'API key not configured in Vercel environment variables.' });
   }
 
   try {
     const { messages, system } = req.body;
+
+    if (!messages || !Array.isArray(messages)) {
+      return res.status(400).json({ error: 'Invalid request: messages array required' });
+    }
 
     const response = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
@@ -22,19 +27,24 @@ export default async function handler(req, res) {
         'anthropic-version': '2023-06-01',
       },
       body: JSON.stringify({
-        model: 'claude-haiku-4-5-20251001',
+        model: 'claude-sonnet-4-5',
         max_tokens: 1000,
         system: system || '',
         messages,
       }),
     });
 
-    const data = await response.json();
+    if (!response.ok) {
+      const err = await response.text();
+      console.error('Anthropic error:', response.status, err);
+      return res.status(500).json({ error: 'AI service error. Please try again.' });
+    }
 
-    // Send back everything so we can see the full response
+    const data = await response.json();
     return res.status(200).json(data);
 
   } catch (err) {
-    return res.status(200).json({ error: 'Caught error: ' + err.message });
+    console.error('Proxy error:', err);
+    return res.status(500).json({ error: 'Server error. Please try again.' });
   }
 }
