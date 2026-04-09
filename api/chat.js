@@ -31,13 +31,7 @@ export default async function handler(req, res) {
 
     const data = await response.json();
 
-    if (!response.ok) {
-      // Return the FULL Anthropic error so we can see it
-      return res.status(200).json({ 
-        error: 'Anthropic said: ' + JSON.stringify(data)
-      });
-    }
-
+    // Send back everything so we can see the full response
     return res.status(200).json(data);
 
   } catch (err) {
