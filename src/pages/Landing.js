@@ -137,8 +137,8 @@ const TESTIMONIALS = [
 
 const PLANS = [
   { name:'Personal', price:'$0', period:'forever free', desc:'Get started and see how CareGuide can help.', features:['10 AI questions per month','1 insurance letter draft','Medication checker (up to 3 meds)','Ontario resource directory'], featured:false },
-  { name:'Family', price:'$4.99', period:'/month', desc:'Everything you need to confidently manage care for a loved one.', features:['Unlimited AI conversations','Unlimited letter drafts','Medication tracker (unlimited)','Benefits navigator','Care task tracker','Local Elgin County resources','Priority email support'], featured:true },
-  { name:'Organization', price:'$79', period:'/month · up to 10 staff', desc:'For home care agencies and social workers in Elgin County.', features:['Everything in Family','10 team accounts','Client management dashboard','Custom intake forms','Dedicated onboarding call','Phone support'], featured:false },
+  { name:'Family', price:'$4.99', period:'/month', desc:'Everything you need to confidently manage care for a loved one.', features:['Unlimited AI conversations','Unlimited letter drafts','Medication tracker (unlimited)','Benefits navigator','Care task tracker','Local resources','Priority email support'], featured:true },
+  { name:'Organization', price:'$79', period:'/month · up to 10 staff', desc:'For home care agencies and social workers in Ontario.', features:['Everything in Family','10 team accounts','Client management dashboard','Custom intake forms','Dedicated onboarding call','Phone support'], featured:false },
 ];
 
 const FAQS = [
