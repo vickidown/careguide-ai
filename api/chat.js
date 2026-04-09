@@ -8,15 +8,11 @@ export default async function handler(req, res) {
 
   const apiKey = process.env.ANTHROPIC_API_KEY;
   if (!apiKey) {
-    return res.status(500).json({ error: 'API key not configured in Vercel environment variables.' });
+    return res.status(500).json({ error: 'No API key found' });
   }
 
   try {
     const { messages, system } = req.body;
-
-    if (!messages || !Array.isArray(messages)) {
-      return res.status(400).json({ error: 'Invalid request: messages array required' });
-    }
 
     const response = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
@@ -26,24 +22,25 @@ export default async function handler(req, res) {
         'anthropic-version': '2023-06-01',
       },
       body: JSON.stringify({
-        model: 'claude-sonnet-4-5',
+        model: 'claude-haiku-4-5-20251001',
         max_tokens: 1000,
         system: system || '',
         messages,
       }),
     });
 
+    const data = await response.json();
+
     if (!response.ok) {
-      const err = await response.text();
-      console.error('Anthropic error:', response.status, err);
-      return res.status(500).json({ error: 'AI service error. Please try again.' });
+      // Return the FULL Anthropic error so we can see it
+      return res.status(200).json({ 
+        error: 'Anthropic said: ' + JSON.stringify(data)
+      });
     }
 
-    const data = await response.json();
     return res.status(200).json(data);
 
   } catch (err) {
-    console.error('Proxy error:', err);
-    return res.status(500).json({ error: 'Server error. Please try again.' });
+    return res.status(200).json({ error: 'Caught error: ' + err.message });
   }
 }
